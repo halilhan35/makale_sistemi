@@ -1,21 +1,29 @@
 package com.makale_sistemi.entity;
 
+import com.makale_sistemi.constant.SequenceConstants;
+import com.makale_sistemi.constant.TableConstants;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name = "anahtar_kelime_alan")
-public class AnahtarKelimeAlan {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = TableConstants.ANAHTAR_KELIME_ALAN)
+@SequenceGenerator(sequenceName = SequenceConstants.ANAHTAR_KELIME_ALAN_SEQ, name = TableConstants.ANAHTAR_KELIME_ALAN, allocationSize = 1)
+public class AnahtarKelimeAlan implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = TableConstants.ANAHTAR_KELIME_ALAN, strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-    @Column(name = "alan_id", nullable = false)
-    private long alanId;
+    @Column(name = "ALAN_ID", nullable = false)
+    private Long alanId;
 
-    @Column(name = "anahtar_kelime", nullable = false, length = 20)
+    @Column(name = "ANAHTAR_KELIME", nullable = false, length = 20)
     private String anahtarKelime;
-
 }

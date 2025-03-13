@@ -1,26 +1,34 @@
 package com.makale_sistemi.entity;
 
+import com.makale_sistemi.constant.SequenceConstants;
+import com.makale_sistemi.constant.TableConstants;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "makale_log")
-public class MakaleLog {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = TableConstants.MAKALE_LOG)
+@SequenceGenerator(sequenceName = SequenceConstants.MAKALE_LOG_SEQ, name = TableConstants.MAKALE_LOG, allocationSize = 1)
+public class MakaleLog implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = TableConstants.MAKALE_LOG, strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-    @Column(name = "makale_id", nullable = false)
-    private long makaleId;
+    @Column(name = "MAKALE_ID", nullable = false)
+    private Long makaleId;
 
-    @Column(name = "durum", nullable = false, length = 50)
+    @Column(name = "DURUM", nullable = false, length = 50)
     private String durum;
 
-    @Column(name = "tarih", nullable = false)
+    @Column(name = "TARIH", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date tarih;
-
 }
