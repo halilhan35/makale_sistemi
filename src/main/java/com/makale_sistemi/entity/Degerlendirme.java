@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -30,5 +31,5 @@ public class Degerlendirme implements Serializable {
 
     @Column(name = "DEGERLENDIRME_TARIHI", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date degerlendirmeTarihi;
+    private LocalDateTime degerlendirmeTarihi;
 }

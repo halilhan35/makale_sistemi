@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -28,10 +29,10 @@ public class Makale implements Serializable {
     @Column(name = "URL", nullable = false, length = 200)
     private String url;
 
-    @Column(name = "MAKALE_ID", nullable = false)
+    @Column(name = "MAKALE_ID" )
     private Long makaleId;
 
     @Column(name = "YUKLEME_TARIHI", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date yuklemeTarihi;
+    private LocalDateTime yuklemeTarihi;
 }

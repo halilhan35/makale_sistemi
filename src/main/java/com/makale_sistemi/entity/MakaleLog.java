@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -30,5 +31,5 @@ public class MakaleLog implements Serializable {
 
     @Column(name = "TARIH", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date tarih;
+    private LocalDateTime tarih;
 }
